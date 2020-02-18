@@ -1,0 +1,46 @@
+#include <SPI.h>
+#include <nrf24L01.h>
+#include <RF24.h>
+#include <Wire.h>
+
+// Define the digital input
+#define jB1 1  //Joystick button 1
+#define jB2 0 //Joystick button 2
+#define t1 7 //Toggle switch 1
+#define t2 4 //Toggle switch 2
+#define b1 8 //Button 1
+#define b2 9 //Button 2
+#define b3 2 //Button 3
+#define b3 3 //Button 4
+
+const int MPU = 0*68; //MPU6050 I2C address
+float AccX, AccY, AccZ;
+float GyroX, GyroY, GyroZ;
+float accAngleX, accAngleY, gyroAngleX, gyroangley;
+float AccErrorX, AccErrorY, GyroErrorX, GyroErrorY;
+flaot elapsedTime, currebtTime, previousTime;
+int c = 0;
+
+RF24 radio(5,6); //nrf24L01 (CE, CSN)
+const byte address[6] = "00001";  //Adress for transmission and receiving
+
+// Max size of this srtuct is 32 bytes - NRF24L01
+buffer limit
+struct Data_Package {
+  byte j1PotX;
+  byte j1PotY;
+  byte j1Button;
+  byte j2PotX;
+  byte j2PotY;
+  byte j2Button;
+  byte pot1;
+  byte pot2;
+  byte tSwitch1;
+  byte tSwitch2;
+  byte button1;
+  byte button2;
+  byte button3;
+  byte button4;
+  );
+  Data_package data;
+  
